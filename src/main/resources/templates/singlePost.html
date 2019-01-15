@@ -1,23 +1,21 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 
 <head>
     <title>Acebook</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<!-- @posts.each do |post|-->
-<!-- make a div for each post-->
-<!-- end -->
 
-<h1>Welcome</h1>
+
 <table>
-    <th:block th:each="post : ${posts}">
+    <th:block th:each="post : ${posts.postId}">
         <tr>
             <td th:text="${post.content}">...</td>
         </tr>
     </th:block>
 </table>
+
 
 </body>
 </html>
