@@ -11,8 +11,8 @@
 <table>
     <th:block th:each="post : ${posts}">
         <tr>
+            <td th:text="'Post number: '+ ${post.getId()}"></td>
             <td th:text="${post.getContent()}"></td>
-            <td th:text="${post.getId()}"></td>
         </tr>
     </th:block>
 </table>
