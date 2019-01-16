@@ -1,6 +1,5 @@
 package com.makersacademy.acebook.controller;
 
-import com.makersacademy.acebook.model.Greeting;
 import com.makersacademy.acebook.model.Post;
 import com.makersacademy.acebook.model.PostForm;
 import com.makersacademy.acebook.repository.PostRepository;
@@ -25,11 +24,11 @@ public class HomeController {
 		return "index";
 	}
 
-	@RequestMapping(value = "/greeting")
+//	@RequestMapping(value = "/greeting")
 	@GetMapping("/greeting")
 	public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
 		model.addAttribute("name", name);
-		return "postForm";
+		return "greeting";
 	}
 
 	@GetMapping("/post")
@@ -46,7 +45,11 @@ public class HomeController {
 		return "result";
 	}
 
-	//Create a new GET endpoint which lists all the posts
+	@GetMapping("/batWall")
+	public String posts(Model model) {
+		model.addAttribute("messages", postRepository.findAll());
+		return "batWall";
+	}
 
 
 }
